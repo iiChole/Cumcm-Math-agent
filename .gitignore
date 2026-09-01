@@ -1,0 +1,13 @@
+# Windows downloaded-file metadata
+*:Zone.Identifier
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
