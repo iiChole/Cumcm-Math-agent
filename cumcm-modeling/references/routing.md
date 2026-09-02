@@ -17,9 +17,11 @@
 ## 初始识别标签
 
 - `mechanism`：守恒、物理过程、几何约束、微分方程。
+- `geometry`：具有形状、尺寸、方向或边界的对象，以及覆盖、遮挡、碰撞、相交和可见性。
 - `statistics`：抽样、分布、检验、置信区间和参数估计。
 - `prediction`：回归、分类、时间序列和未知样本预测。
-- `optimization`：成本/收益、资源配置、路径、整数或连续优化。
+- `optimization`：成本/收益、资源配置、方案选择和风险决策。
+- `continuous-optimization`：连续时间、空间或参数上的极值，以及非线性约束和低维可行流形。
 - `multistage`：状态转移、序贯决策、动态规划或 MDP。
 - `inverse`：由观测反演参数、隐变量或机理量。
 - `numerical`：积分、求根、非线性最小二乘或大规模数值求解。
@@ -31,12 +33,14 @@
 
 | 标签 | 方法卡 |
 |---|---|
+| `mechanism`、`geometry` | [methods/mechanism-geometry.md](methods/mechanism-geometry.md) |
 | `statistics` | [methods/statistics-inference.md](methods/statistics-inference.md) |
 | `optimization` | [methods/optimization-decision.md](methods/optimization-decision.md) |
+| `continuous-optimization` | [methods/continuous-optimization.md](methods/continuous-optimization.md) |
 | `discrete-optimization` | [methods/discrete-optimization.md](methods/discrete-optimization.md) |
 | `multistage` | [methods/multistage-decision.md](methods/multistage-decision.md) |
 
-题型弱先验：B 题可读取 [profiles/problem-b.md](profiles/problem-b.md)。该画像只提供常见结构、评分关注点和失分风险，不排除其他方法。
+题型弱先验：A 题可读取 [profiles/problem-a.md](profiles/problem-a.md)，B 题可读取 [profiles/problem-b.md](profiles/problem-b.md)。画像只提供初始检查方向、评分关注点和失分风险，不排除其他方法。
 
 ## 路由规则
 
@@ -52,6 +56,6 @@
 - “由观测估计物理参数后制定方案”：`mechanism + inverse + optimization + uncertainty`。
 - “预测需求并安排多阶段库存”：`prediction + multistage + optimization`。
 - “抽样估计质量并决定是否生产”：`statistics + optimization + uncertainty`。
-- “空间覆盖并考虑测量误差”：`mechanism + optimization + numerical + uncertainty`。
+- “空间覆盖并考虑测量误差”：`mechanism + geometry + continuous-optimization + numerical + uncertainty`。
 
-方法卡将在后续阶段补充；在此之前，本文件只负责结构标签和通用工作流路由。
+没有专用方法卡的标签继续使用通用工作流参考；不要因为资料尚未拆分就改按题号选择方法。
