@@ -22,8 +22,8 @@ LOG_PATTERNS = [
 ]
 
 
-def run(cmd: list[str]) -> subprocess.CompletedProcess[str]:
-    return subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+def run(cmd: list[str], cwd: Path | None = None) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(cmd, cwd=cwd, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
 
 
 def main() -> int:
@@ -56,7 +56,7 @@ def main() -> int:
             warnings.append("xelatex not installed; skipped compilation")
         else:
             for i in range(2):
-                cp = run(["xelatex", "-interaction=nonstopmode", "-halt-on-error", "example.tex"])
+                cp = run(["xelatex", "-interaction=nonstopmode", "-halt-on-error", "example.tex"], cwd=root)
                 if cp.returncode != 0:
                     errors.append(f"XeLaTeX pass {i+1} failed")
                     (root / "validate_compile.log").write_text(cp.stdout, encoding="utf-8", errors="ignore")

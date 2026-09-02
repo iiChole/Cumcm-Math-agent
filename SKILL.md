@@ -1,5 +1,5 @@
 ---
-name: cumcm-b-problem
+name: cumcm-problem
 description: 专用于全国大学生数学建模竞赛（CUMCM）本科组 B 题的读题、建模、算法选择、数值求解、结果验证、论文叙事、图表设计、LaTeX 成稿与赛前终检。适用于用户要求分析或完整解决国赛 B 题、基于题目附件建模、参考近年 B 题优秀论文改进写法、结合专家讲评或评分细则优化方案、撰写正文 20–24 页（不含附录）的高质量 B 题论文、生成完整 LaTeX+code 工程或审查 B 题论文时。不要将本 Skill 的 B 题经验机械套用于 A/C 题。
 ---
 
@@ -218,7 +218,7 @@ description: 专用于全国大学生数学建模竞赛（CUMCM）本科组 B �
 当用户要求完整论文或 ZIP 时：
 
 1. 优先使用用户上传的模板、`.cls` 和目录结构；不要擅自换模板或重写版式系统。
-2. 若用户未给模板，可用 `assets/paper_skeleton.tex` 作为骨架，但仍需用户自己的 `cumcmthesis.cls` 或当年官方模板。
+2. 若用户未给模板，可用 `assets/paper_skeleton.tex` 作为骨架；`assets/` 已自带 `cumcmthesis.cls`，也可用 `--cls` 换用用户自己的类文件。
 3. 工程至少包含：
 
 ```text

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Create a clean CUMCM B-problem project skeleton.
 
-This script does not overwrite an existing cumcmthesis.cls. If a template source is
-provided, it copies that file verbatim so the user's formatting system is preserved.
+The bundled assets/cumcmthesis.cls is copied by default so the project compiles out of
+the box. Pass --cls to use the user's own class file instead, which is never overwritten.
 """
 from __future__ import annotations
 import argparse
@@ -43,11 +43,10 @@ def main() -> None:
     if not tex_dst.exists():
         shutil.copy2(tex_src, tex_dst)
 
-    if args.cls:
-        cls_src = Path(args.cls).expanduser().resolve()
-        cls_dst = out / "cumcmthesis.cls"
-        if not cls_dst.exists():
-            shutil.copy2(cls_src, cls_dst)
+    cls_src = Path(args.cls).expanduser().resolve() if args.cls else (ROOT / "assets" / "cumcmthesis.cls")
+    cls_dst = out / "cumcmthesis.cls"
+    if not cls_dst.exists() and cls_src.is_file():
+        shutil.copy2(cls_src, cls_dst)
 
     gi = out / ".gitignore"
     if not gi.exists():
