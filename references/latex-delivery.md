@@ -65,7 +65,7 @@ xelatex -interaction=nonstopmode -halt-on-error example.tex
 - overview 图是否重叠；
 - 表格是否过小；
 - 参考文献是否排版整齐；
-- 主论文是否落在目标页数。
+- 主论文正文（不含附录）是否落在 20–24 页；附录后的 PDF 总页数不设上限。
 
 ## 6. 代码
 

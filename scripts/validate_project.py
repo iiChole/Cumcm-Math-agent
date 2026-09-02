@@ -29,8 +29,8 @@ def run(cmd: list[str]) -> subprocess.CompletedProcess[str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("project")
-    ap.add_argument("--min-pages", type=int, default=25, help="preferred main-paper minimum")
-    ap.add_argument("--max-pages", type=int, default=29, help="preferred main-paper maximum")
+    ap.add_argument("--min-pages", type=int, default=20, help="preferred main-paper minimum (excluding appendix)")
+    ap.add_argument("--max-pages", type=int, default=24, help="preferred main-paper maximum (excluding appendix)")
     ap.add_argument("--compile", action="store_true", help="run XeLaTeX twice before checks")
     args = ap.parse_args()
 
@@ -76,9 +76,13 @@ def main() -> int:
             m = re.search(r"^Pages:\s+(\d+)", cp.stdout, flags=re.M)
             if m:
                 pages = int(m.group(1))
-                print(f"PDF pages (including appendices if present): {pages}")
+                print(f"PDF pages (whole file, including appendices if present): {pages}")
+                print(f"Preferred main-paper length (excluding appendix): {args.min_pages}–{args.max_pages}")
                 if pages < args.min_pages:
-                    warnings.append(f"PDF has {pages} pages, below preferred {args.min_pages}–{args.max_pages}; verify appendix/page-count convention")
+                    warnings.append(
+                        f"PDF has {pages} pages, below preferred main-paper {args.min_pages}–{args.max_pages}; "
+                        "this count includes appendices, so verify the body-only length"
+                    )
         if shutil.which("pdftotext"):
             cp = run(["pdftotext", "-f", "1", "-l", "1", str(pdf), "-"])
             first = cp.stdout
