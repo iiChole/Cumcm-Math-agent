@@ -56,6 +56,7 @@
 - [ ] 章节层级统一。
 - [ ] 公式编号和交叉引用正确。
 - [ ] 没有 Overfull/Undefined references。
+- [ ] 严格按照paper_writing.md的“1.总体结构”为大小标题命名
 
 ## 可复现性
 
