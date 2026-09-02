@@ -1,0 +1,7 @@
+interface:
+  display_name: "CUMCM Modeling"
+  short_description: "A/B/C题统一建模、求解与验证"
+  default_prompt: "Use $cumcm-modeling to analyze this CUMCM problem by mathematical structure and build a verifiable solution."
+
+policy:
+  allow_implicit_invocation: true

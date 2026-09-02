@@ -1,0 +1,7 @@
+interface:
+  display_name: "CUMCM Paper Delivery"
+  short_description: "建模论文、图表、LaTeX与交付"
+  default_prompt: "Use $cumcm-paper-delivery to turn these modeling results into a reproducible CUMCM paper project and run the delivery checks."
+
+policy:
+  allow_implicit_invocation: true
