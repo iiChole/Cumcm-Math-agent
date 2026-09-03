@@ -14,8 +14,8 @@
 |---|---|---|---|
 | `SKILL.md` | B 题 Skill 总入口、通用工作流、B 题方法、论文交付 | `cumcm-modeling/SKILL.md`、`cumcm-b` 题型画像、`cumcm-paper-delivery/SKILL.md` | 按知识单元拆分，保留原规则 |
 | `COMPACT.md` | B 题常驻硬约束 | Core 与 Delivery 的约束分片 | 不直接作为全局硬约束 |
-| `references/workflow.md` | B 题端到端工作流 | `cumcm-core/references/` | 提取通用流程 |
-| `references/model-selection.md` | 模型与算法选择 | `cumcm-core/references/methods/`、`cumcm-b` | 通用选型上移，B 题案例保留 |
+| `references/workflow.md` | B 题端到端工作流 | `cumcm-modeling/references/` | 提取通用流程 |
+| `references/model-selection.md` | 模型与算法选择 | `cumcm-modeling/references/methods/`、B 题画像 | 通用选型上移，B 题案例保留 |
 | `references/expert-rubric-guidance.md` | B 题专家讲评与评分偏好 | `cumcm-modeling/references/profiles/problem-b.md` | 保留为弱先验 |
 | `references/paper-writing.md` | 论文结构、叙事、摘要、附录 | `cumcm-paper-delivery/references/` | 拆分论文结构与叙事 |
 | `references/visualization.md` | 图表与视觉规范 | `cumcm-paper-delivery/references/` | 原文迁移 |
