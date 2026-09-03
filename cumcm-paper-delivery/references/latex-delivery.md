@@ -4,15 +4,16 @@
 
 1. 用户提供的模板与 `.cls`；
 2. 当年官方模板；
-3. 本 Skill 的 `assets/paper_skeleton.tex`，仅作无模板时的骨架。
+3. 本 Skill 的 `assets/paper-template/`，仅作无模板时的骨架。
 
 不要在已有模板时擅自更换版式系统。
 
-## 推荐工程结构
+## 论文工程结构
 
 ```text
 project/
 ├── figures/
+├── results/
 ├── code/
 │   ├── q1_*.py
 │   ├── q2_*.py
@@ -20,21 +21,33 @@ project/
 │   ├── requirements.txt
 │   └── README.md
 ├── .gitignore
-├── cumcmthesis.cls
-├── example.tex
-└── example.pdf
+└── paper/
+    ├── cumcmthesis.cls
+    ├── main.tex
+    ├── main.pdf
+    ├── references.tex
+    └── sections/
+        ├── frontmatter.tex
+        ├── problem1.tex
+        ├── ...
+        ├── validation.tex
+        ├── evaluation.tex
+        └── appendix.tex
 ```
+
+这是没有指定模板时用于完整长论文的默认结构，不是所有论文的固定文件清单。已有模板可以采用单文件或其他拆分方式。论文内容可以来自建模报告、数据表、程序输出或用户提供的其他已验证材料。工程验收以论文源文件、直接依赖和编译产物为范围。
 
 ## 编译与检查
 
 优先 XeLaTeX，至少编译两遍：
 
 ```bash
-xelatex -interaction=nonstopmode -halt-on-error example.tex
-xelatex -interaction=nonstopmode -halt-on-error example.tex
+cd paper
+xelatex -interaction=nonstopmode -halt-on-error main.tex
+xelatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-检查日志中的 `Overfull`、`Undefined`、`LaTeX Warning`、`Citation` 和 `Reference`；处理正文关键公式、表格和图形的溢出、未定义引用、字体乱码和越界。编译后确认摘要与关键词位于第 1 页，删除完全空白页，并用 PDF 渲染检查图表重叠、可读性和章节层级。
+检查 `paper/main.log` 中的 `Overfull`、`Undefined`、`LaTeX Warning`、`Citation` 和 `Reference`；处理正文关键公式、表格和图形的溢出、未定义引用、字体乱码和越界。编译后确认摘要与关键词位于第 1 页，删除完全空白页，并用 PDF 渲染检查图表重叠、可读性和章节层级。
 
 正文页数按用户或当年官方要求；没有特别要求时，默认控制在 20–24 页（不含附录）。
 附录放在正文之后；默认只约束正文页数，不以附录后的 PDF 总页数替代正文页数检查，也不通过空白、巨图或重复文字凑页数。
