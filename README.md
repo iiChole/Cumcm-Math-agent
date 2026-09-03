@@ -6,11 +6,11 @@
 
 ### `cumcm-modeling`
 
-负责 CUMCM A、B、C 题的证据盘点、结构拆题、基础模型 M0、方法路由、模型递进、求解、独立验证与可复现性检查。方法按数学结构组织，已包含从原 B 题 Skill 提取并泛化的通用能力与可复用方法。
+负责 CUMCM A、B、C 题的证据盘点、结构拆题、基础模型 M0、方法路由、模型递进、求解、独立验证与可复现性检查。完整任务生成三个核心报告：`ANALYSIS_MODELING_REPORT.md`、`RESULTS_REPORT.md` 和 `VALIDATION_REPORT.md`。
 
 ### `cumcm-paper-delivery`
 
-负责与题型无关的摘要、论文叙事、图表、LaTeX 工程、编译检查、代码附件和最终质量门。
+负责与题型无关的摘要、论文叙事、图表、LaTeX 工程、编译检查、代码附件和最终质量门。完整长论文默认按顶层问题拆分到 `paper/sections/`；已有模板可以保持原有文件组织，并可直接使用用户提供的已验证材料。
 
 ## 推荐组合
 
@@ -20,10 +20,19 @@
 只做论文或 LaTeX：cumcm-paper-delivery
 ```
 
-## 重构状态
+## 建模报告检查
 
-当前已完成第四至第八阶段：通用建模工作流、跨题型方法卡、B 题弱先验画像、独立论文交付模块、根目录兼容路由和行为验证用例已建立；重复的旧论文正文、模板副本和脚本已在引用审计后删除。`COMPACT.md` 与迁移台账仍保留用于兼容和追溯。行为测试见 [`tests/behavior-routing.md`](tests/behavior-routing.md)，迁移台账见 [REFACTOR_BASELINE.md](REFACTOR_BASELINE.md)。
+```bash
+python cumcm-modeling/scripts/validate_reports.py <项目目录>
+```
 
-## 发布状态
+## 论文工程初始化与检查
 
-阶段 0–8 已完成。当前 `main` 包含全部本地迁移提交；推送远程前应先审阅提交差异，并在目标环境运行 `tests/validate_routing.py` 与 `cumcm-paper-delivery/scripts/validate_project.py`。
+例如为四问赛题创建论文工程：
+
+```bash
+python cumcm-paper-delivery/scripts/init_project.py <项目目录> --questions 4
+python cumcm-paper-delivery/scripts/validate_project.py <项目目录> --questions 4 --compile
+```
+
+论文检查覆盖内容结构、`\input{}` 引用、编译日志、PDF 页面和代码附件，并兼容单文件与多文件工程。建模报告与论文工程分别检查，行为测试见 `tests/validate_artifacts.py`。

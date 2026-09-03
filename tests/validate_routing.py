@@ -9,6 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 REQUIRED_FILES = [
     "SKILL.md",
     "cumcm-modeling/SKILL.md",
+    "cumcm-modeling/references/artifact-contract.md",
+    "cumcm-modeling/scripts/validate_reports.py",
     "cumcm-modeling/references/routing.md",
     "cumcm-modeling/references/profiles/problem-b.md",
     "cumcm-modeling/references/methods/inverse-problems.md",
@@ -22,6 +24,9 @@ REQUIRED_FILES = [
     "cumcm-paper-delivery/references/paper-structure.md",
     "cumcm-paper-delivery/references/latex-delivery.md",
     "cumcm-paper-delivery/references/quality-gates.md",
+    "cumcm-paper-delivery/assets/paper-template/main.tex",
+    "cumcm-paper-delivery/scripts/init_project.py",
+    "cumcm-paper-delivery/scripts/validate_project.py",
 ]
 
 
@@ -45,8 +50,10 @@ def main() -> int:
     for needle in ("inverse", "mechanism", "geometry", "statistics", "optimization", "multistage", "discrete-optimization"):
         require(routing, needle, "modeling routing")
     require(root, "同时加载 `cumcm-modeling` 与 `cumcm-paper-delivery`", "hybrid route")
-    require(modeling, "不要负责论文排版、LaTeX 编译或 ZIP 交付", "modeling boundary")
-    require(paper, "不负责选择题型建模方法", "paper boundary")
+    require(modeling, "三个核心报告", "modeling artifact contract")
+    require(modeling, "references/artifact-contract.md", "modeling artifact routing")
+    require(paper, "本 Skill 聚焦论文叙事、工程结构、编译和交付质量", "paper scope")
+    require(paper, "论文写作可以直接使用用户提供的模型", "paper input flexibility")
     require(paper, "references/quality-gates.md", "paper quality gate")
 
     print(f"PASS: {len(REQUIRED_FILES)} routing resources present")

@@ -21,7 +21,7 @@
 | `references/visualization.md` | 图表与视觉规范 | `cumcm-paper-delivery/references/` | 原文迁移 |
 | `references/latex-delivery.md` | LaTeX、编译、ZIP 交付 | `cumcm-paper-delivery/references/` | 原文迁移并修复路径问题 |
 | `references/quality-gates.md` | 数学、验证、摘要、排版终检 | Core 与 Delivery | 按检查对象拆分 |
-| `assets/paper_skeleton.tex` | 默认论文模板 | `cumcm-paper-delivery/assets/` | 与写作规范对齐后迁移 |
+| 原 `assets/paper_skeleton.tex` | 默认论文模板 | `cumcm-paper-delivery/assets/paper-template/` | 对应当前多文件模板资源 |
 | `assets/cumcmthesis.cls` | 本地 LaTeX 类文件 | `cumcm-paper-delivery/assets/` 或保留为用户模板 | 先确认是否纳入发布包 |
 | `scripts/init_project.py` | 初始化论文工程 | `cumcm-paper-delivery/scripts/` | 修正资源路径后迁移 |
 | `scripts/validate_project.py` | 论文工程验证 | `cumcm-paper-delivery/scripts/` | 修复工作目录、页数和代码检测 |
@@ -69,7 +69,7 @@ B 题专属抽样、生产决策、多阶段决策及评分偏好已在第四阶
 | 图表、Overview 图、配色与表格 | `cumcm-paper-delivery/references/visualization.md` | 已迁移，旧正文已删除 |
 | LaTeX 模板优先级、编译、工程结构、ZIP | `cumcm-paper-delivery/references/latex-delivery.md` | 已迁移并修复资源路径，旧正文已删除 |
 | 论文终检 | `cumcm-paper-delivery/references/quality-gates.md` | 已迁移为交付范围清单，旧正文已删除 |
-| 默认模板与类文件 | `cumcm-paper-delivery/assets/paper_skeleton.tex`、`cumcm-paper-delivery/assets/cumcmthesis.cls` | 已迁移，旧副本已删除 |
+| 默认模板与类文件 | `cumcm-paper-delivery/assets/paper-template/`、`cumcm-paper-delivery/assets/cumcmthesis.cls` | 当前采用分章节模板 |
 | 工程初始化与验证 | `cumcm-paper-delivery/scripts/init_project.py`、`cumcm-paper-delivery/scripts/validate_project.py` | 已迁移并改为题型无关，旧脚本已删除 |
 
 ## 第六阶段迁移记录
@@ -116,7 +116,7 @@ B 题专属抽样、生产决策、多阶段决策及评分偏好已在第四阶
 | `latex-delivery.md`：模板、工程、编译、日志、页面、代码、ZIP | `cumcm-paper-delivery/references/latex-delivery.md` | 保留全部交付规则 | 路径改为论文 Skill 内部相对路径 |
 | `quality-gates.md`：数学、递进、算法、验证 | `cumcm-modeling` 的基础模型、递进、算法和验证资料 | 保留全部建模门禁 | 从论文终检拆回建模质量层 |
 | `quality-gates.md`：摘要、图表、页面、可复现 | `cumcm-paper-delivery/references/quality-gates.md` | 保留全部交付门禁 | 与建模正确性检查解耦 |
-| `assets/paper_skeleton.tex`、`cumcmthesis.cls` | `cumcm-paper-delivery/assets/` | 保留模板与类文件；增加 Linux 字体回退 | 去除默认 B 题题号 |
+| 原 `assets/paper_skeleton.tex`、`cumcmthesis.cls` | `cumcm-paper-delivery/assets/paper-template/` 与 `assets/cumcmthesis.cls` | 提供多文件模板与类文件 | 题号和问题数量由当前任务确定 |
 | `scripts/init_project.py`、`validate_project.py` | `cumcm-paper-delivery/scripts/` | 保留初始化和验证行为 | 修复资源根路径并改为题型无关 |
 | `COMPACT.md` 各硬约束 | `cumcm-modeling`、`cumcm-paper-delivery`、`profiles/problem-b.md` | 规则已迁入；原文件暂留作兼容与追溯 | 不再作为全局单一入口 |
 
