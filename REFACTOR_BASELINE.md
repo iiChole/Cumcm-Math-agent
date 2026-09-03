@@ -59,3 +59,23 @@ B 题专属抽样、生产决策、多阶段决策及评分偏好已在第四阶
 | 枚举、支配剪枝、结构化降复杂度 | `cumcm-modeling/references/methods/discrete-optimization.md` | 已提取并泛化 |
 | 动态规划、MDP、状态转移和序贯决策 | `cumcm-modeling/references/methods/multistage-decision.md` | 已提取并泛化 |
 | B 题常见结构、评分关注点、不可机械套用边界 | `cumcm-modeling/references/profiles/problem-b.md` | 已建立弱先验画像 |
+
+## 第五阶段迁移记录
+
+| 原知识单元 | 新文件 | 状态 |
+|---|---|---|
+| 论文结构、模型章节边界、代码附录 | `cumcm-paper-delivery/references/paper-structure.md` | 已迁移并改为题型无关 |
+| 摘要、问题分析、结果叙事、模型评价 | `cumcm-paper-delivery/references/abstract-and-narrative.md` | 已从 `paper-writing.md` 拆分迁移 |
+| 图表、Overview 图、配色与表格 | `cumcm-paper-delivery/references/visualization.md` | 已迁移 |
+| LaTeX 模板优先级、编译、工程结构、ZIP | `cumcm-paper-delivery/references/latex-delivery.md` | 已迁移并修复资源路径 |
+| 论文终检 | `cumcm-paper-delivery/references/quality-gates.md` | 已迁移为交付范围清单 |
+| 默认模板与类文件 | `cumcm-paper-delivery/assets/paper_skeleton.tex`、`cumcm-paper-delivery/assets/cumcmthesis.cls` | 已复制，旧资源保留 |
+| 工程初始化与验证 | `cumcm-paper-delivery/scripts/init_project.py`、`cumcm-paper-delivery/scripts/validate_project.py` | 已复制并改为题型无关 |
+
+## 第六阶段迁移记录
+
+| 入口 | 状态 |
+|---|---|
+| 根目录 `SKILL.md` | 已改为兼容路由，仅负责在 `cumcm-modeling`、B 题画像和 `cumcm-paper-delivery` 之间分流 |
+| 根目录 `agents/openai.yaml` | 已更新为 CUMCM Skills Router 元数据 |
+| 旧 `references/`、`assets/`、`scripts/` | 兼容期继续保留，待行为验证与引用审计后清理 |

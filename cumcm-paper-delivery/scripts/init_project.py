@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+"""Create a clean, reproducible CUMCM paper project skeleton.
+
+The bundled assets/cumcmthesis.cls is copied by default so the project compiles out of
+the box. Pass --cls to use the user's own class file instead, which is never overwritten.
+"""
+from __future__ import annotations
+import argparse
+from pathlib import Path
+import shutil
+
+ROOT = Path(__file__).resolve().parents[1]
+SKELETON = ROOT / "assets" / "paper_skeleton.tex"
+
+GITIGNORE = """*.fls
+*.fdb_latexmk
+*.xdv
+*.toc
+*.bbl
+*.blg
+__pycache__/
+*.pyc
+.DS_Store
+"""
+
+CODE_README = """# code\n\n按实际问题或功能拆分脚本，例如 `q1_*.py`、`q2_*.py` 和 `plot_*.py`。\n\n运行时固定随机种子，并输出正文中的关键结果；在此记录依赖、输入路径和运行顺序。\n"""
+
+
+def main() -> None:
+    p = argparse.ArgumentParser()
+    p.add_argument("output", help="project directory")
+    p.add_argument("--tex-template", help="optional user-provided example.tex to preserve")
+    p.add_argument("--cls", help="optional user-provided cumcmthesis.cls to preserve")
+    args = p.parse_args()
+
+    out = Path(args.output).expanduser().resolve()
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "figures").mkdir(exist_ok=True)
+    (out / "code").mkdir(exist_ok=True)
+
+    tex_src = Path(args.tex_template).expanduser().resolve() if args.tex_template else SKELETON
+    tex_dst = out / "example.tex"
+    if not tex_dst.exists():
+        shutil.copy2(tex_src, tex_dst)
+
+    cls_src = Path(args.cls).expanduser().resolve() if args.cls else (ROOT / "assets" / "cumcmthesis.cls")
+    cls_dst = out / "cumcmthesis.cls"
+    if not cls_dst.exists() and cls_src.is_file():
+        shutil.copy2(cls_src, cls_dst)
+
+    gi = out / ".gitignore"
+    if not gi.exists():
+        gi.write_text(GITIGNORE, encoding="utf-8")
+
+    cr = out / "code" / "README.md"
+    if not cr.exists():
+        cr.write_text(CODE_README, encoding="utf-8")
+
+    print(f"Created CUMCM paper project skeleton: {out}")
+    if not (out / "cumcmthesis.cls").exists():
+        print("Note: cumcmthesis.cls was not provided; copy the user's/official class before compiling.")
+
+
+if __name__ == "__main__":
+    main()

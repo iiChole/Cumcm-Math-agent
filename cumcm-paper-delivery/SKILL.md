@@ -18,15 +18,18 @@ description: 为 CUMCM 数学建模成果提供与题型无关的论文与工程
 
 ## 参考资料路由
 
-- 论文结构和叙事：读取 [references/paper-structure.md](references/paper-structure.md)。
-- 图表设计：第二阶段暂读旧资料 [references/visualization.md](../references/visualization.md)，后续迁入本 Skill。
-- LaTeX 与 ZIP：第二阶段暂读旧资料 [references/latex-delivery.md](../references/latex-delivery.md)，后续迁入本 Skill。
-- 最终检查：第二阶段暂读旧资料 [references/quality-gates.md](../references/quality-gates.md)，后续拆分后迁入本 Skill。
+按任务读取必要资料，不要一次加载全部文件：
+
+- 论文结构与模型章节边界：读取 [references/paper-structure.md](references/paper-structure.md)。
+- 摘要、问题分析、结果叙事和模型评价：读取 [references/abstract-and-narrative.md](references/abstract-and-narrative.md)。
+- 图表与 overview 图：读取 [references/visualization.md](references/visualization.md)。
+- LaTeX 工程、编译、代码附件与 ZIP：读取 [references/latex-delivery.md](references/latex-delivery.md)。
+- 交付前终检：读取 [references/quality-gates.md](references/quality-gates.md)。
 
 ## 工程资源
 
-- 默认模板第二阶段仍位于旧路径 `../assets/paper_skeleton.tex`；迁移完成后归档到本 Skill 的 `assets/`。
-- 初始化和验证脚本第二阶段仍位于旧路径 `../scripts/`；迁移完成后归档到本 Skill 的 `scripts/`。
+- 默认模板位于 `assets/paper_skeleton.tex`；用户提供的模板和 `.cls` 优先级更高。
+- 使用 `scripts/init_project.py` 创建工程，用 `scripts/validate_project.py` 做结构、编译和基础交付检查。
 
 ## 边界
 

@@ -1,3 +1,4 @@
 interface:
-  display_name: "CUMCM B Problem"
-  short_description: "国赛 B 题建模、论文叙事、图表与 LaTeX 完整工作流"
+  display_name: "CUMCM Skills Router"
+  short_description: "路由 CUMCM 建模与论文交付能力"
+  default_prompt: "Use the CUMCM skills router to select modeling and/or paper-delivery workflows for this request."
