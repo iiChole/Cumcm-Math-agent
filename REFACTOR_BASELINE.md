@@ -119,3 +119,16 @@ B 题专属抽样、生产决策、多阶段决策及评分偏好已在第四阶
 | `assets/paper_skeleton.tex`、`cumcmthesis.cls` | `cumcm-paper-delivery/assets/` | 保留模板与类文件；增加 Linux 字体回退 | 去除默认 B 题题号 |
 | `scripts/init_project.py`、`validate_project.py` | `cumcm-paper-delivery/scripts/` | 保留初始化和验证行为 | 修复资源根路径并改为题型无关 |
 | `COMPACT.md` 各硬约束 | `cumcm-modeling`、`cumcm-paper-delivery`、`profiles/problem-b.md` | 规则已迁入；原文件暂留作兼容与追溯 | 不再作为全局单一入口 |
+
+## 第八阶段行为验证记录
+
+行为用例和可执行契约检查位于 [`tests/behavior-routing.md`](tests/behavior-routing.md) 与 [`tests/validate_routing.py`](tests/validate_routing.py)。四类请求均已覆盖：
+
+| 用例 | 预期行为 | 结果 |
+|---|---|---|
+| B 题背景 + 参数反演 + 几何约束 | 同时加载 B 画像、`inverse` 和 `mechanism/geometry` | 通过 |
+| 纯 B 题抽样 + 成本收益 + 多阶段 | 保留 B 题先验，并加载 statistics/optimization/multistage 方法卡 | 通过 |
+| C 题整数优化/鲁棒决策 | 不依赖 B 画像，直接复用 discrete/optimization 方法 | 通过 |
+| 只写论文与 LaTeX 交付 | 只加载 `cumcm-paper-delivery` 及其交付参考 | 通过 |
+
+自动契约测试检查根路由、方法标签、边界声明和所有必要资源存在性；它不替代真实赛题上的数学正确性验证。

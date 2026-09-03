@@ -22,4 +22,4 @@
 
 ## 重构状态
 
-当前已完成第四至第七阶段：通用建模工作流、跨题型方法卡、B 题弱先验画像、独立论文交付模块和根目录兼容路由已建立；重复的旧论文正文、模板副本和脚本已在引用审计后删除。`COMPACT.md` 与迁移台账仍保留用于兼容和追溯。迁移台账见 [REFACTOR_BASELINE.md](REFACTOR_BASELINE.md)。
+当前已完成第四至第八阶段：通用建模工作流、跨题型方法卡、B 题弱先验画像、独立论文交付模块、根目录兼容路由和行为验证用例已建立；重复的旧论文正文、模板副本和脚本已在引用审计后删除。`COMPACT.md` 与迁移台账仍保留用于兼容和追溯。行为测试见 [`tests/behavior-routing.md`](tests/behavior-routing.md)，迁移台账见 [REFACTOR_BASELINE.md](REFACTOR_BASELINE.md)。

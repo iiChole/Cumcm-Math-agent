@@ -34,6 +34,7 @@
 | 标签 | 方法卡 |
 |---|---|
 | `mechanism`、`geometry` | [methods/mechanism-geometry.md](methods/mechanism-geometry.md) |
+| `inverse` | [methods/inverse-problems.md](methods/inverse-problems.md) |
 | `statistics` | [methods/statistics-inference.md](methods/statistics-inference.md) |
 | `optimization` | [methods/optimization-decision.md](methods/optimization-decision.md) |
 | `continuous-optimization` | [methods/continuous-optimization.md](methods/continuous-optimization.md) |
