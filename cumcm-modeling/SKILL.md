@@ -1,6 +1,6 @@
 ---
 name: cumcm-modeling
-description: 统一处理全国大学生数学建模竞赛 A、B、C 题的证据盘点、结构拆题、模型建立、算法选择、求解、验证与可复现性检查；按数学结构路由方法，不因题号限制算法。不要负责论文排版、LaTeX 编译或 ZIP 交付。
+description: 统一处理全国大学生数学建模竞赛 A、B、C 题的证据盘点、结构拆题、模型建立、算法选择、求解、验证与可复现性检查，并为完整建模任务生成三个核心报告；按数学结构路由方法，不因题号限制算法。
 ---
 
 # CUMCM Modeling
@@ -16,6 +16,18 @@ description: 统一处理全国大学生数学建模竞赛 A、B、C 题的证�
 5. 对关键结论进行至少两类验证，并保留独立于主求解链的交叉验证。
 6. 固定随机种子、记录参数和数据路径，使关键结果可重现。
 
+## 必须产出
+
+当用户要求完整分析、建模、求解或可交付的建模成果时，读取并执行 [references/artifact-contract.md](references/artifact-contract.md)，在当前项目的 `reports/` 中生成且只强制以下三个核心报告：
+
+- `ANALYSIS_MODELING_REPORT.md`
+- `RESULTS_REPORT.md`
+- `VALIDATION_REPORT.md`
+
+纯解释、只读审阅或局部答疑不因加载本 Skill 而自动获得写文件授权。各问题在三个核心报告内使用独立章节组织，保持模型、结果和验证口径唯一。
+
+开始实现或数值求解前，应完成分析建模报告中的问题分析、完整模型推导和求解方案。宣称完整建模任务完成前，应补齐结果与验证报告，并通过 `scripts/validate_reports.py` 的结构检查；内容正确性仍按 [references/validation.md](references/validation.md) 人工或模型复核，不能由文件存在性代替。
+
 ## 方法路由
 
 先读取 [references/routing.md](references/routing.md)，再按当前任务选择参考资料，不要一次加载全部文件：
@@ -27,6 +39,7 @@ description: 统一处理全国大学生数学建模竞赛 A、B、C 题的证�
 - 选择或审查求解算法时，读取 [references/algorithm-selection.md](references/algorithm-selection.md)。
 - 产生关键结果或审查可信度时，读取 [references/validation.md](references/validation.md)。
 - 编写或审查计算代码时，读取 [references/reproducibility.md](references/reproducibility.md)。
+- 创建、继续或验收完整建模任务时，读取 [references/artifact-contract.md](references/artifact-contract.md)。
 - 涉及物理/几何对象、连续极值、抽样推断、成本收益、离散优化或多阶段决策时，读取 `references/routing.md` 指向的对应方法卡；不要按题号排除方法。
 - 题号明确且需要完整解题或高风险复核时，可读取对应题型画像作为遗漏检查；画像不能覆盖题面结构。
 
@@ -42,7 +55,7 @@ description: 统一处理全国大学生数学建模竞赛 A、B、C 题的证�
 
 ## 与论文交付的边界
 
-本 Skill 输出模型、算法、数值结果和验证依据。需要摘要、图表、LaTeX、编译或最终交付时，另行加载 `cumcm-paper-delivery`。
+本 Skill 通过三个核心报告输出模型、算法、数值结果和验证依据。需要摘要、图表、LaTeX、编译或最终交付时，另行加载 `cumcm-paper-delivery`。端到端任务默认以这些报告交接；论文模块同时支持用户提供的其他已验证材料。
 
 ## 建模终检五问
 

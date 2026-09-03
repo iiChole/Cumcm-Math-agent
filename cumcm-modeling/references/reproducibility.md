@@ -32,6 +32,18 @@
 
 程序应输出正文使用的关键结果，而不是要求人工从大量日志中寻找。图表应由代码或可追溯数据生成。
 
+完整建模任务还应维护以下文件级追踪：
+
+```text
+reports/ANALYSIS_MODELING_REPORT.md
+→ code/ 中的实现入口
+→ results/ 或 figures/ 中的输出
+→ reports/RESULTS_REPORT.md
+→ reports/VALIDATION_REPORT.md
+```
+
+每个顶层问题在报告内使用独立章节，不为追踪目的重复创建分问题建模和解法文件。具体字段见 [artifact-contract.md](artifact-contract.md)。
+
 ## 数值复现检查
 
 - 同一环境重复运行是否一致；
@@ -51,4 +63,4 @@
 - 输出写到哪里；
 - 如何核对关键结果。
 
-论文工程组织、附件排版和 ZIP 清理由 `cumcm-paper-delivery` 负责；本文件只定义计算结果的可复现要求。
+论文工程组织、附件排版和 ZIP 清理由 `cumcm-paper-delivery` 负责；本文件只定义计算结果和建模报告交接链的可复现要求。
